@@ -2,9 +2,9 @@
 <project-module
   type="WEB"
   name="jsbm"
-  id="myeclipse.1363702250303"
+  id="myeclipse.1363658916953"
   context-root="/jsbm"
-  j2ee-spec="6.0"
+  j2ee-spec="5.0"
   archive="jsbm.war">
   <attributes>
     <attribute name="webrootdir" value="WebRoot" />

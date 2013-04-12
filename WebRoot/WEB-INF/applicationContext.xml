@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/aop
+         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+
+	<!-- 启用注解扫描 -->
+	<context:annotation-config></context:annotation-config>
+
+	<!-- 事务管理 -->
+	<bean id="txManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="mySessionFactory" />
+	</bean>
+	<!-- 启用事务注解 -->
+	<tx:annotation-driven transaction-manager="txManager" />
+
+	<!-- Hibernate数据连接 <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" 
+		destroy-method="close"> <property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" 
+		/> <property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl" /> 
+		<property name="username" value="scott" /> <property name="password" value="tiger" 
+		/> </bean> -->
+
+	<!-- Hibernate数据连接,使用连接池 因为使用了BasicDataSource类，所以要导入commons-dbcp-1.4.jar 
+		和commons-pool-1.5.3.jsr -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver">
+		</property>
+		<property name="url" value="jdbc:mysql://localhost:3306/jsbm"></property>
+		<property name="username" value="root"></property>
+		<property name="password" value="sunshine"></property>
+
+	</bean>
+
+	<!-- 配置会话工厂 -->
+	<!-- 原来在hibernate。cfg。xml中的配置全写到这里，整合后不需要hibernate。cfg。xml文件 -->
+	<bean id="mySessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		
+		<property name="dataSource" ref="dataSource" />
+		<property name="mappingResources">
+			<list>
+				<!-- hibernate资源映射文件，例如： <value>com/zhanfaquan/bean/MyClass.hbm.xml</value> -->
+				<value>com/trumanliu/domain/Comment.hbm.xml</value>
+				<value>com/trumanliu/domain/Major.hbm.xml</value>
+				<value>com/trumanliu/domain/College.hbm.xml</value>
+				<value>com/trumanliu/domain/Article.hbm.xml</value>
+				<value>com/trumanliu/domain/Student.hbm.xml</value>
+			</list>
+		</property>
+		<!-- hibernate的属性配置，每行一个 -->
+		<property name="hibernateProperties">
+			<value>
+				hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+				hibernate.hbm2ddl.auto=update
+				show_sql=true
+			</value>
+		</property>
+	</bean>
+
+	<!-- 下面配置各种bean -->
+	<!-- Dao层的bean -->
+	<bean id="studentDaoImpl" class="com.trumanliu.dao.impl.StudentDaoImpl">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>
+
+
+	<!-- Service层的bean -->
+	<bean id="studentService" class="com.trumanliu.service.impl.StudentServiceImpl">
+		<property name="stuDao" ref="studentDaoImpl"></property>
+	</bean>
+
+	<!-- Web层的bean -->
+	<bean id="studentActionInSpring" class="com.trumanliu.action.StudentAction"
+		scope="prototype">
+		<property name="studentService" ref="studentService"></property>
+	</bean>
+	
+	<bean id="mainActionInSpring" class="com.trumanliu.action.Main"
+		scope="prototype">
+		<property name="stus" ref="studentService"></property>
+	</bean>
+	
+	<bean id="registerActionInSpring" class="com.trumanliu.action.Register"
+		scope="prototype">
+		<property name="studentService" ref="studentService"></property>
+	</bean>
+
+</beans>

@@ -3,7 +3,7 @@
     <wb-module deploy-name="jsbm">
         <wb-resource deploy-path="/" source-path="/WebRoot"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-        <property name="context-root" value="/jsbm"/>
         <property name="java-output-path" value="/jsbm/WebRoot/WEB-INF/classes"/>
+        <property name="context-root" value="/jsbm"/>
     </wb-module>
 </project-modules>

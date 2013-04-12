@@ -1,0 +1,32 @@
+.loginpan{
+	width: 20%;
+	height: 500px;
+	margin-left: 130px;
+}
+body {
+
+}
+
+* {
+	padding: 0px;
+}
+
+a.anavi:link,a.anavi:visited,a.anavi:hover,a.anavi:active {
+	color: #c3cddf;
+	text-decoration: none;
+}
+
+a:linke,a:visited,a:active {
+	color: #3b5888;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #3v5888;
+	text-decoration: underline;
+}
+.foot{
+	text-align: center;
+	margin-bottom: 5px;
+	margin-left: 400px;
+}
