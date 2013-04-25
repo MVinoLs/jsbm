@@ -53,12 +53,13 @@
 				<value>com/trumanliu/domain/College.hbm.xml</value>
 				<value>com/trumanliu/domain/Article.hbm.xml</value>
 				<value>com/trumanliu/domain/Student.hbm.xml</value>
+				<value>com/trumanliu/domain/Admin.hbm.xml</value>
 			</list>
 		</property>
 		<!-- hibernate的属性配置，每行一个 -->
 		<property name="hibernateProperties">
 			<value>
-				hibernate.dialect=org.hibernate.dialect.Oracle10gDialect
+				hibernate.dialect=org.hibernate.dialect.MySQLDialect
 				hibernate.hbm2ddl.auto=update
 				show_sql=true
 			</value>
@@ -67,14 +68,30 @@
 
 	<!-- 下面配置各种bean -->
 	<!-- Dao层的bean -->
+	
+	<bean id="adminDaoImpl" class="com.trumanliu.dao.impl.AdminDaoImpl">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>
 	<bean id="studentDaoImpl" class="com.trumanliu.dao.impl.StudentDaoImpl">
 		<property name="sessionFactory" ref="mySessionFactory"></property>
 	</bean>
+	<bean id="articleDaoImpl" class="com.trumanliu.dao.impl.ArticleDaoImpl">
+		<property name="sessionFactory" ref="mySessionFactory"></property>
+	</bean>
+	
 
 
 	<!-- Service层的bean -->
 	<bean id="studentService" class="com.trumanliu.service.impl.StudentServiceImpl">
 		<property name="stuDao" ref="studentDaoImpl"></property>
+	</bean>
+	
+	<bean id="adminService" class="com.trumanliu.service.impl.AdminServiceImpl">
+		<property name="adminDao" ref="adminDaoImpl"></property>
+	</bean>
+	
+	<bean id="articleService" class="com.trumanliu.service.impl.ArticleServiceImpl">
+		<property name="articleDao" ref="articleDaoImpl"></property>
 	</bean>
 
 	<!-- Web层的bean -->
@@ -86,11 +103,22 @@
 	<bean id="mainActionInSpring" class="com.trumanliu.action.Main"
 		scope="prototype">
 		<property name="stus" ref="studentService"></property>
+		<property name="articleService" ref="articleService"></property>
 	</bean>
 	
 	<bean id="registerActionInSpring" class="com.trumanliu.action.Register"
 		scope="prototype">
 		<property name="studentService" ref="studentService"></property>
+	</bean>
+	
+	<bean id="adminActionInSpring" class="com.trumanliu.action.AdminAction"
+		scope="prototype">
+		<property name="adminService" ref="adminService"></property>
+	</bean>
+	
+	<bean id="articleActionInSpring" class="com.trumanliu.action.ArticleAction"
+		scope="prototype">
+		<property name="articleService" ref="articleService"></property>
 	</bean>
 
 </beans>

@@ -48,7 +48,7 @@ public class StudentDaoImpl implements StudentDao {
 
 	public List<Student> getAllStudents() {
 		String hql = "from Student";
-		return sessionFactory.getCurrentSession().createQuery(hql).list();
+		return (List<Student>) sessionFactory.getCurrentSession().createQuery(hql).list();
 	}
 
 }

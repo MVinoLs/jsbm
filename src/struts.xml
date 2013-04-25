@@ -17,16 +17,25 @@
 		</action>
 		
 		<action name="main" class="mainActionInSpring">
-			<result >/index.jsp</result>
-			<result name="logout">/index.jsp</result>
+			<result >/main.jsp</result>
+			<result name="logout">/main.jsp</result>
 			<result name="home">/common/home.jsp</result>
-			<result name="input">/index.jsp</result>
+			<result name="input">/main.jsp</result>
 			<result name="register">/common/register.jsp</result>
 		</action>
 		
 		<action name="register" class="registerActionInSpring">
 			<result>/common/home.jsp</result>
 			<result name="input">/common/register.jsp</result>
+		</action>
+		
+		<action name="admin" class="adminActionInSpring">
+			<result>/WEB-INF/pages/admin/index.jsp</result>
+			<result name="edit">/WEB-INF/pages/admin/EditArticle.jsp</result>
+		</action>
+		
+		<action name="article" class="articleActionInSpring">
+			<result>/WEB-INF/pages/admin/index.jsp</result>
 		</action>
 	</package>
 	

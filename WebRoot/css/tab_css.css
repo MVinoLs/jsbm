@@ -1,0 +1,115 @@
+A.a14:link {
+	FONT-SIZE: 14px;
+	TEXT-DECORATION: none
+}
+
+A.a14:visited {
+	FONT-SIZE: 14px;
+	TEXT-DECORATION: none
+}
+
+A.a14:hover {
+	FONT-SIZE: 14px;
+	TEXT-DECORATION: none
+}
+
+#Tab1 {
+	FONT-SIZE: 14px
+}
+
+.14f {
+	FONT-SIZE: 14px
+}
+
+#Tab1 .Menubox {
+	BACKGROUND: url(../images/tab1.gif) repeat-x;
+	OVERFLOW: hidden;
+	PADDING-TOP: 4px;
+	HEIGHT: 23px
+}
+
+#Tab1 .Menubox .b1 {
+	FLOAT: right;
+	WIDTH: 460px;
+	TEXT-ALIGN: left
+}
+
+#Tab1 .Menubox LI.jiantou {
+	FONT-WEIGHT: bold;
+	BACKGROUND: url(../images/jiantou.gif) no-repeat left 50%;
+	WIDTH: 100px;
+	COLOR: #fff
+}
+
+#Tab1 .Menubox A:link {
+	COLOR: #fff
+}
+
+#Tab1 .Menubox A:visited {
+	COLOR: #fff
+}
+
+#Tab1 .Menubox A:hover {
+	COLOR: #ff0
+}
+
+#Tab1 .Menubox A:active {
+	COLOR: #ff0
+}
+
+#Tab1 .Menubox UL {
+	PADDING-RIGHT: 0px;
+	PADDING-LEFT: 0px;
+	PADDING-BOTTOM: 0px;
+	MARGIN: 0px;
+	PADDING-TOP: 0px;
+	LIST-STYLE-TYPE: none
+}
+
+#Tab1 .Menubox LI {
+	BACKGROUND: url(../images/tab002.gif) no-repeat left 50%;
+	FLOAT: left;
+	MARGIN-LEFT: 5px;
+	WIDTH: 70px;
+	CURSOR: pointer;
+	LINE-HEIGHT: 23px;
+	HEIGHT: 23px;
+	TEXT-ALIGN: center
+}
+
+#Tab1 .Menubox LI .b {
+	BACKGROUND: url(../images/tab002.gif) no-repeat right 50%;
+	FLOAT: right;
+	WIDTH: 2px;
+	HEIGHT: 23px
+}
+
+#Tab1 .Menubox LI.hover {
+	FONT-WEIGHT: bold;
+	BACKGROUND: url(../images/tab001.gif) no-repeat left 50%;
+	LINE-HEIGHT: 23px;
+	HEIGHT: 23px
+}
+
+#Tab1 .Menubox LI.hover .b {
+	BACKGROUND: url(../images/tab001.gif) no-repeat right 50%;
+	FLOAT: right;
+	WIDTH: 2px;
+	HEIGHT: 23px
+}
+
+#Tab1 .Menubox LI.hover A:link {
+	COLOR: #333
+}
+
+#Tab1 .Menubox LI.hover A:visited {
+	COLOR: #333
+}
+
+#Tab1 .Menubox LI.hover A:hover {
+	COLOR: #333
+}
+
+#Tab1 .Menubox LI.hover A:active {
+	COLOR: #333
+}

@@ -4,6 +4,12 @@
 	background-color: 3B5888;
 	margin: 0 auto;
 }
+.title1 {
+	color: #c3cddf;
+	text-align: center;
+	font-size: 28px;
+	font-family:"楷体","楷体_GB2312";
+}
 .head1 .img1{
 	width: 713px;
 	float: left;

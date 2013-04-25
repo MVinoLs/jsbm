@@ -1,0 +1,80 @@
+td {
+	font-size: 12px;
+	line-height: 22px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-color: #c0c0c0;
+}
+a:link {
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+}
+a:visited {
+	font-size: 12px;
+	color: #000000;
+	text-decoration: none;
+}
+a:hover {
+	font-size: 12px;
+	color: #000000;
+	text-decoration: underline;
+}
+.white12{
+	font-size: 12px;
+	color: #ffffff;
+	text-decoration: none;
+}
+a.white13b:link {
+	font-size: 13px;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.white13b:visited {
+	font-size: 13px;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: bold;
+}
+a.white13b:hover {
+	font-size: 13px;
+	color: #ffffff;
+	text-decoration: underline;
+	font-weight: bold;
+}
+.blue12b{
+	font-size: 12px;
+	color: #00427b;
+	text-decoration: none;
+	font-weight: bold;
+}
+.black14b{
+	font-size: 14px;
+	color: #000000;
+	text-decoration: none;
+	font-weight: bold;
+}
+.boder {
+	border-right: 1px solid #6396c1;
+	border-bottom: 1px solid #6396c1;
+	border-left: 1px solid #6396c1;
+}
+.tu {
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.input{
+	height: 18px;
+	width: 170px;
+	border: 1px solid #cccccc;
+}
+.input1{
+	height: 18px;
+	width: 100px;
+	border: 1px solid #cccccc;
+}

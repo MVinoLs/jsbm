@@ -17,15 +17,21 @@
   
   <body>
   <div class="head1">
-	<a href="/jsbm"><img class="img1" src="/jsbm/images/top1.gif"></img></a>
+  	<div class="title1"><a class='anavi' href="/jsbm">中国海洋大学数学竞赛报名系统</a></div>
+	<!-- <a href="/jsbm"><img class="img1" src="/jsbm/images/top1.gif"></img></a>
 	<img class="img2" src="/jsbm/images/top2.jpg"/>
-	<img src="/jsbm/images/xnw3.jpg"style="float : left" />
+	<img src="/jsbm/images/xnw3.jpg"style="float : left" /> -->
 	<ul class="navi1">
 	<%Student stuh =(Student) session.getAttribute("stu");
+	Admin adm = (Admin) session.getAttribute("admin");
 	if(stuh!=null){
 		out.print("<li onmouseover='changeBG1(this)' onmouseout='restoreBG(this)'> <a class='anavi' href='main!myhome'>个人中心</a></li>");
 		out.print("<li onmouseover='changeBG1(this)' onmouseout='restoreBG(this)'> <a class='anavi' href='main!logout'>退出登录</a></li>");
 	}else{
+		if(adm != null){
+		out.print("<li onmouseover='changeBG1(this)' onmouseout='restoreBG(this)'> <a class='anavi' href='admin!myhome'>管理中心</a></li>");
+		out.print("<li onmouseover='changeBG1(this)' onmouseout='restoreBG(this)'> <a class='anavi' href='main!logout'>退出登录</a></li>");
+		}else
 		out.print("<li onmouseover='changeBG1(this)' onmouseout='restoreBG(this)'> <a class='anavi' href='main!register'>注册</a></li>");
 	}
 	%>
